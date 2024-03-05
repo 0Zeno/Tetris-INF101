@@ -8,6 +8,8 @@ import java.util.Objects;
 
 import org.junit.jupiter.api.Test;
 
+import no.uib.inf101.grid.CellPosition;
+
 /**
 * Testing the class CellPosition
 */
