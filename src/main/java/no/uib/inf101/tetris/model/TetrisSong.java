@@ -1,4 +1,4 @@
-package no.uib.inf101.tetris.midi;
+package no.uib.inf101.tetris.model;
 
 import java.io.InputStream;
 

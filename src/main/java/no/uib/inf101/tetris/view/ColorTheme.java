@@ -7,12 +7,13 @@ public class ColorTheme implements IColorTheme {
     @Override
     public Color getCellColor(Character c) {
         Color color = switch(c) {
-            case 'r' -> Color.RED;
-            case 'g' -> Color.GREEN;
-            case 'b' -> Color.BLUE;
-            case 'y' -> Color.YELLOW;
-            case 'o' -> Color.ORANGE;
-            case 'p' -> Color.PINK;
+            case 'L' -> Color.RED;
+            case 'J' -> Color.GREEN;
+            case 'S' -> Color.BLUE;
+            case 'Z' -> Color.YELLOW;
+            case 'I' -> Color.ORANGE;
+            case 'O' -> Color.PINK;
+            case 'T' -> Color.MAGENTA;
             case '-' -> Color.BLACK;
             default -> throw new IllegalArgumentException("No avalible color for '" + c + "'");
         };

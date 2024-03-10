@@ -12,7 +12,7 @@ import no.uib.inf101.grid.GridCell;
 
 public class TetrisView extends JPanel {
 
-    IViewbleTetrisModel tetrisModel;
+    IViewableTetrisModel tetrisModel;
 
     ColorTheme colorTheme;
 
@@ -20,10 +20,10 @@ public class TetrisView extends JPanel {
 
     private static final double INNERMARGIN = 1;
 
-    public TetrisView(IViewbleTetrisModel vModel) {
+    public TetrisView(IViewableTetrisModel vModel) {
         this.tetrisModel = vModel;
         this.setFocusable(true);
-        this.setPreferredSize(new Dimension(300, 400));
+        this.setPreferredSize(new Dimension(300, 600));
         this.colorTheme = new ColorTheme();
 
         Color bg = colorTheme.getBackgroundColor();
@@ -31,29 +31,31 @@ public class TetrisView extends JPanel {
         this.setBackground(bg);
     }
 
-    
     /**
      * 
      * @param g2 grafics element
      */
     private void drawGame(Graphics2D g2) {
         double width = getWidth();
-        double height = getHeight();
-        Rectangle2D background = new Rectangle2D.Double(OUTERMARGIN, OUTERMARGIN, width - 2 *OUTERMARGIN,
+        double height = getWidth() * 2;
+        Rectangle2D background = new Rectangle2D.Double(OUTERMARGIN, OUTERMARGIN, width - 2 * OUTERMARGIN,
                 height - 2 * OUTERMARGIN);
         CellPositionToPixelConverter cellInformation = new CellPositionToPixelConverter(background,
                 tetrisModel.getDimentions(), INNERMARGIN);
+
         g2.setColor(colorTheme.getBackgroundColor());
         g2.fill(background);
         drawCells(g2, tetrisModel.getTilesOnBoard(), cellInformation, colorTheme);
+        drawCells(g2, tetrisModel.fallingTetromino(), cellInformation, colorTheme);
+
     }
 
     /**
      * 
-     * @param g2 2d graphics
-     * @param grid ittereble grid
+     * @param g2           2d graphics
+     * @param grid         ittereble grid
      * @param cPConcverter cell position to graphics converter
-     * @param colorTheme color theme of tetris
+     * @param colorTheme   color theme of tetris
      */
 
     private static void drawCells(Graphics2D g2, Iterable<GridCell<Character>> grid,
