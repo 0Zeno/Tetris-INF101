@@ -22,6 +22,11 @@ public class TetrisSong implements Runnable {
         this.doPlayMidi(song, true);
     }
 
+    
+    /** 
+     * @param is
+     * @param loop
+     */
     private void doPlayMidi(final InputStream is, final boolean loop) {
         try {
             this.doStopMidiSounds();
@@ -75,6 +80,10 @@ public class TetrisSong implements Runnable {
         }
     }
 
+    
+    /** 
+     * @param msg
+     */
     private void midiError(final String msg) {
         System.err.println("Midi error: " + msg);
         this.sequencer = null;

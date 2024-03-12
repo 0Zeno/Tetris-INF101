@@ -29,11 +29,19 @@ public class Grid <E> implements IGrid <E>{
         this(row, col, null);
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int rows() {
         return this.row;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int cols() {
         return this.col;

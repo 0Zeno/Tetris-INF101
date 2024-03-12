@@ -86,6 +86,10 @@ public class GridTest {
     assertFalse(grid.positionIsOnGrid(new CellPosition(0, -1)));
   }
   
+  
+  /** 
+   * @throws ExceptionWhenCoordinateOffGrid()
+   */
   @Test
   void throwsExceptionWhenCoordinateOffGrid() {
     IGrid<String> grid = new Grid<>(3, 2, "x");

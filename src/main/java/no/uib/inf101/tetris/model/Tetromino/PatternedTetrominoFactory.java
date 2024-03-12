@@ -9,6 +9,10 @@ public class PatternedTetrominoFactory implements ITetrominoFactory {
         this.pattern = pattern;
     }
 
+    
+    /** 
+     * @return Tetromino
+     */
     @Override
     public Tetromino getNext() {
         if (counter == pattern.length()) {

@@ -4,6 +4,11 @@ import java.awt.Color;
 
 public class ColorTheme implements IColorTheme {
 
+    
+    /** 
+     * @param c
+     * @return Color
+     */
     @Override
     public Color getCellColor(Character c) {
         Color color = switch(c) {
@@ -20,6 +25,10 @@ public class ColorTheme implements IColorTheme {
         return color;
     }
 
+    
+    /** 
+     * @return Color
+     */
     @Override
     public Color getFrameColor() {
         return Color.LIGHT_GRAY;

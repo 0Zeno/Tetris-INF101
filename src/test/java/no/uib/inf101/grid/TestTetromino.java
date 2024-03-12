@@ -9,7 +9,6 @@ import java.util.List;
 
 import no.uib.inf101.tetris.model.Tetromino.Tetromino;
 
-
 import org.junit.jupiter.api.Test;
 
 public class TestTetromino {
@@ -47,5 +46,38 @@ public class TestTetromino {
         assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 101), 'T')));
         assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 102), 'T')));
         assertTrue(objs.contains(new GridCell<>(new CellPosition(12, 101), 'T')));
+
+    }
+
+    @Test
+    public void tetrominoRotationOfT() {
+        Tetromino tetro = Tetromino.newTetromino('T');
+        tetro = tetro.shiftedBy(10, 10);
+
+        // Collect which objects are iterated through
+        List<GridCell<Character>> objs = new ArrayList<>();
+        for (GridCell<Character> gc : tetro) {
+            objs.add(gc);
+        }
+
+        // Check that we got the expected GridCell objects
+        assertEquals(4, objs.size());
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 10), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 11), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 12), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(12, 11), 'T')));
+
+        tetro = tetro.rotateTetromino();
+
+        // Collect which objects are iterated through
+        objs = new ArrayList<>();
+        for (GridCell<Character> gc : tetro) {
+            objs.add(gc);
+        }
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 13), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(10, 12), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 12), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(12, 12), 'T')));
+
     }
 }

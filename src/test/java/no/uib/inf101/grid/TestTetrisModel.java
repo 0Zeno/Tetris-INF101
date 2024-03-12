@@ -46,9 +46,11 @@ public class TestTetrisModel {
     }
 
     assertEquals(4, tetroCells.size());
+    assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(0, 3), 'I')));
     assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(0, 4), 'I')));
     assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(0, 5), 'I')));
     assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(0, 6), 'I')));
-    assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(0, 3), 'I')));
+
   }
+
 }

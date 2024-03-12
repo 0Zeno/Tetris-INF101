@@ -14,6 +14,10 @@ public class TetrisBoard extends Grid<Character>{
         }
     }
 
+    
+    /** 
+     * @return String
+     */
     public String prettyString() {
         String prettyString = "";
         for (int rows = 0; rows < rows(); rows++){

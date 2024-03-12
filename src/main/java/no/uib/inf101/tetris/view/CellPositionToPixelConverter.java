@@ -16,6 +16,11 @@ public class CellPositionToPixelConverter {
         this.margin = margin;
     }
 
+    
+    /** 
+     * @param cp
+     * @return Rectangle2D
+     */
     public Rectangle2D getBoundsForCell(CellPosition cp){
         double rows = gd.rows();
         double cols = gd.cols();

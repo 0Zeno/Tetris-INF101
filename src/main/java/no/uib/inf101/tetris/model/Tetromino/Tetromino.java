@@ -123,6 +123,10 @@ public class Tetromino implements Iterable<GridCell<Character>> {
         return (new Tetromino(tetrominoType, tetrominoShape, new CellPosition(-1, col - 1)));
     }
 
+    
+    /** 
+     * @return Iterator<GridCell<Character>>
+     */
     public Iterator<GridCell<Character>> iterator() {
         ArrayList<GridCell<Character>> list = new ArrayList<GridCell<Character>>();
         Tetromino tetromino = newTetromino(tetrominoType);
@@ -138,22 +142,43 @@ public class Tetromino implements Iterable<GridCell<Character>> {
 
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj){
+        if (this == obj) {
             return true;
-        } 
+        }
 
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 
         Tetromino otherTetromino = ((Tetromino) obj);
-        return tetrominoType == otherTetromino.tetrominoType && cellPos.equals(otherTetromino.cellPos) && Arrays.deepEquals(tetrominoShape, otherTetromino.tetrominoShape);
+        return tetrominoType == otherTetromino.tetrominoType && cellPos.equals(otherTetromino.cellPos)
+                && Arrays.deepEquals(tetrominoShape, otherTetromino.tetrominoShape);
     }
-    
+
     @Override
     public int hashCode() {
         return Objects.hash(this.tetrominoType, Arrays.deepHashCode(this.tetrominoShape), this.cellPos);
     }
+
+    public Tetromino rotateTetromino() {
+        System.out.println("Calling the rotate method");
+        int cols = tetrominoShape[0].length;
+        int rows = tetrominoShape.length;
+
+        boolean[][] rotatedShape = new boolean[cols][rows];
+        for (int row = 0; row < rows; row++){
+            for (int col = 0; col < cols; col++){
+                rotatedShape[col][rows - 1 - row] = tetrominoShape[row][col];
+            }
+        }
+        return new Tetromino(tetrominoType, rotatedShape, cellPos);
+    }
+
 }

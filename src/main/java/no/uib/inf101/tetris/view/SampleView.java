@@ -17,6 +17,10 @@ public class SampleView extends JPanel {
     this.setPreferredSize(new Dimension(300, 400));
   }
   
+  
+  /** 
+   * @param g
+   */
   // The paintComponent method is called by the Java Swing framework every time
   // either the window opens or resizes, or we call .repaint() on this object. 
   // Note: NEVER call paintComponent directly yourself
@@ -27,6 +31,10 @@ public class SampleView extends JPanel {
     paintSample(g2);
   }
 
+  
+  /** 
+   * @param g2
+   */
   private void paintSample(Graphics2D g2) {
     // A small rectangle (args: x, y of top-left corner, width, height)
     Rectangle2D rect1 = new Rectangle2D.Double(20, 20, 100, 50);
