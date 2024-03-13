@@ -1,5 +1,6 @@
 package no.uib.inf101.tetris.model;
 
+import no.uib.inf101.grid.CellPosition;
 import no.uib.inf101.grid.GridCell;
 import no.uib.inf101.grid.GridDimension;
 import no.uib.inf101.tetris.controller.IControllableTetrisModel;
@@ -11,15 +12,16 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
     TetrisBoard board;
     ITetrominoFactory factory;
     Tetromino tetromino;
+    GameState currentGameState;
 
     public TetrisModel(TetrisBoard board, ITetrominoFactory factory) {
         this.board = board;
         this.factory = factory;
         tetromino = this.factory.getNext().shiftedToTopCenterOf(board);
+        currentGameState = GameState.ACTIVE_GAME;
     }
 
-    
-    /** 
+    /**
      * @return GridDimension
      */
     @Override
@@ -27,8 +29,7 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         return board;
     }
 
-    
-    /** 
+    /**
      * @return Iterable<GridCell<Character>>
      */
     @Override
@@ -71,6 +72,38 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
         }
         return false;
+    }
+
+    
+    public void getNewFallingTetromino(){
+        Tetromino newFallingTetromino = factory.getNext().shiftedToTopCenterOf(board);
+        if (isLegalePlaceOnBoard(newFallingTetromino) && gameState() == GameState.ACTIVE_GAME){
+            tetromino = newFallingTetromino;
+        } else {
+            currentGameState = GameState.GAME_OVER;
+        }
+
+    }
+
+    public void glueTetromino() {
+        for (GridCell<Character> cell: tetromino){
+            CellPosition pos = cell.pos();
+            board.set(pos, cell.value());
+        }
+    }
+
+    @Override
+    public void dropTetromino() {
+        while (moveTetromino(1, 0));
+        glueTetromino();
+        getNewFallingTetromino();
+
+        
+    }
+
+    @Override
+    public GameState gameState() {
+        return currentGameState;
     }
 
 }

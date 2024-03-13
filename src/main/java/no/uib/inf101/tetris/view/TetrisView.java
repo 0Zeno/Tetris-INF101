@@ -2,6 +2,7 @@ package no.uib.inf101.tetris.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
@@ -9,6 +10,7 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.JPanel;
 
 import no.uib.inf101.grid.GridCell;
+import no.uib.inf101.tetris.model.GameState;
 
 public class TetrisView extends JPanel {
 
@@ -31,6 +33,19 @@ public class TetrisView extends JPanel {
         this.setBackground(bg);
     }
 
+    public void drawGameOver(Graphics2D g2, Rectangle2D r2) {
+        if (tetrisModel.gameState() == GameState.GAME_OVER) {
+            Rectangle2D gameOverScreen = r2;
+            g2.setColor(colorTheme.getGameOverColor());
+            g2.fill(gameOverScreen);
+
+            g2.setColor(Color.LIGHT_GRAY);
+            g2.setFont(new Font("Arial", Font.BOLD, 40));
+            g2.drawString("Game Over", getWidth()/6 , getHeight() / 2);
+
+        }
+    }
+
     /**
      * 
      * @param g2 grafics element
@@ -48,6 +63,9 @@ public class TetrisView extends JPanel {
         drawCells(g2, tetrisModel.getTilesOnBoard(), cellInformation, colorTheme);
         drawCells(g2, tetrisModel.fallingTetromino(), cellInformation, colorTheme);
 
+        if (tetrisModel.gameState() == GameState.GAME_OVER) {
+            drawGameOver(g2, background);
+        }
     }
 
     /**
@@ -68,8 +86,7 @@ public class TetrisView extends JPanel {
         }
     }
 
-    
-    /** 
+    /**
      * @param g
      */
     @Override
@@ -77,7 +94,6 @@ public class TetrisView extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         drawGame(g2);
-
     }
 
 }

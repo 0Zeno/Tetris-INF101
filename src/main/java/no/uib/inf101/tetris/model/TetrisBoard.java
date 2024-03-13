@@ -32,4 +32,17 @@ public class TetrisBoard extends Grid<Character>{
         return prettyString;
     }
     
+    public void clearRow(){
+
+    }
+
+    public void moveRowToTop(){
+
+    }
+
+    public void findFullRow(){
+        
+    }
+
+
 }

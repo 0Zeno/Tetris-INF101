@@ -38,5 +38,13 @@ public class ColorTheme implements IColorTheme {
     public Color getBackgroundColor() {
         return Color.WHITE;
     }
+
+
+    @Override
+    public Color getGameOverColor() {
+        return (new Color(20, 20, 20, 200));
+    }
+    
+
     
 }

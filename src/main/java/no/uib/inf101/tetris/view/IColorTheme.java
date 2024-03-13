@@ -26,4 +26,6 @@ public interface IColorTheme {
      * @throws Error color can not be transparent
      */
     Color getBackgroundColor();
+
+    Color getGameOverColor();
 } 

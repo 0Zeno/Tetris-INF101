@@ -40,12 +40,10 @@ public class TetrisController implements java.awt.event.KeyListener {
             System.out.println("move to the down");
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             controllableTetrisModel.rotateTetromino();
-            System.out.println(controllableTetrisModel.rotateTetromino());
-            System.out.println("rotate");
 
 
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            // TODO
+            controllableTetrisModel.dropTetromino();
         }
         tetrisView.repaint();
     }

@@ -129,19 +129,17 @@ public class Tetromino implements Iterable<GridCell<Character>> {
      */
     public Iterator<GridCell<Character>> iterator() {
         ArrayList<GridCell<Character>> list = new ArrayList<GridCell<Character>>();
-        Tetromino tetromino = newTetromino(tetrominoType);
-        for (int i = 0; i < tetromino.tetrominoShape.length; i++) {
-            for (int n = 0; n < tetromino.tetrominoShape.length; n++) {
-                if (tetromino.tetrominoShape[i][n]) {
+        for (int i = 0; i < tetrominoShape.length; i++) {
+            for (int n = 0; n < tetrominoShape.length; n++) {
+                if (tetrominoShape[i][n]) {
                     list.add(new GridCell<Character>(new CellPosition(cellPos.row() + i, cellPos.col() + n),
-                            tetrominoType));
+                            this.tetrominoType));
                 }
             }
         }
         return list.iterator();
 
     }
-
     
     /** 
      * @param obj
