@@ -117,7 +117,6 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
     @Override
     public void clockTick() {
         if(moveTetromino(1, 0)){
-
         } else {
             glueTetromino();
             getNewFallingTetromino();

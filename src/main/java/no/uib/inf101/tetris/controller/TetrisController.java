@@ -6,12 +6,14 @@ import java.awt.event.KeyEvent;
 import javax.swing.Timer;
 
 import no.uib.inf101.tetris.model.GameState;
+import no.uib.inf101.tetris.model.TetrisSong;
 import no.uib.inf101.tetris.view.TetrisView;
 
 public class TetrisController implements java.awt.event.KeyListener {
     private IControllableTetrisModel controllableTetrisModel;
     private TetrisView tetrisView;
     private Timer timer;
+    private TetrisSong song;
 
     public TetrisController(IControllableTetrisModel controllableTetrisModel, TetrisView tetrisView) {
         this.tetrisView = tetrisView;
@@ -20,6 +22,8 @@ public class TetrisController implements java.awt.event.KeyListener {
         this.tetrisView.addKeyListener(this);
         this.timer = new Timer(controllableTetrisModel.getTimerDelay(), this::clockTick);
         timer.start();
+        this.song = new TetrisSong();
+        //song.run();
     }
 
     /**
@@ -36,6 +40,7 @@ public class TetrisController implements java.awt.event.KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if (controllableTetrisModel.gameState() == GameState.ACTIVE_GAME) {
+            
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                 controllableTetrisModel.moveTetromino(0, -1);
                 System.out.println("move to the left");

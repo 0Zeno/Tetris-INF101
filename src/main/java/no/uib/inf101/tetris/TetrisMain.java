@@ -25,6 +25,7 @@ public class TetrisMain {
     TetrisModel model = new TetrisModel(tb, factory);
     
     TetrisView view = new TetrisView(model);
+    @SuppressWarnings("unused")
     TetrisController controller = new TetrisController(model, view);
     // The JFrame is the "root" application window.
     // We here set som properties of the main window, 
