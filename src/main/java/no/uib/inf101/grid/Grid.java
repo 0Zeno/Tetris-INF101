@@ -47,6 +47,10 @@ public class Grid <E> implements IGrid <E>{
         return this.col;
     }
 
+    
+    /** 
+     * @return Iterator<GridCell<E>>
+     */
     @Override
     public Iterator<GridCell<E>> iterator() {
         ArrayList<GridCell<E>> grid = new ArrayList<GridCell<E>>();

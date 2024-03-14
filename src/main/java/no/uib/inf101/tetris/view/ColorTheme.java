@@ -34,6 +34,10 @@ public class ColorTheme implements IColorTheme {
         return Color.LIGHT_GRAY;
     }
 
+    
+    /** 
+     * @return Color
+     */
     @Override
     public Color getBackgroundColor() {
         return Color.WHITE;

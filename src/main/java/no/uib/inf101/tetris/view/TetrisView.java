@@ -33,6 +33,11 @@ public class TetrisView extends JPanel {
         this.setBackground(bg);
     }
 
+    
+    /** 
+     * @param g2
+     * @param r2
+     */
     public void drawGameOver(Graphics2D g2, Rectangle2D r2) {
         if (tetrisModel.gameState() == GameState.GAME_OVER) {
             Rectangle2D gameOverScreen = r2;

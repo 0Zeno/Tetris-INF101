@@ -38,6 +38,10 @@ public class TetrisBoard extends Grid<Character> {
         }
     }
 
+    
+    /** 
+     * @return int
+     */
     public int removeRow() {
         TetrisBoard board = this;
         int row = rows() - 1;

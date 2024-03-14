@@ -160,6 +160,10 @@ public class Tetromino implements Iterable<GridCell<Character>> {
                 && Arrays.deepEquals(tetrominoShape, otherTetromino.tetrominoShape);
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(this.tetrominoType, Arrays.deepHashCode(this.tetrominoShape), this.cellPos);

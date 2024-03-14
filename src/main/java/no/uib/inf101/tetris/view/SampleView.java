@@ -67,6 +67,11 @@ public class SampleView extends JPanel {
     Inf101Graphics.drawCenteredString(g2, "Centered text", chessBox);
   }
   
+  
+  /** 
+   * @param g
+   * @param box
+   */
   private void drawChess(Graphics2D g, Rectangle2D box) {
     double cellWidth = box.getWidth() / 8;
     double cellHeight = box.getHeight() / 8;

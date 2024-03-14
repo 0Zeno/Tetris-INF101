@@ -37,6 +37,10 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         return board;
     }
 
+    
+    /** 
+     * @return Iterable<GridCell<Character>>
+     */
     @Override
     public Iterable<GridCell<Character>> fallingTetromino() {
         return tetromino;
@@ -93,8 +97,7 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
     @Override
     public void dropTetromino() {
-        while (moveTetromino(1, 0))
-            ;
+        while (moveTetromino(1, 0));
         glueTetromino();
         board.removeRow();
         getNewFallingTetromino();
@@ -113,7 +116,13 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
     @Override
     public void clockTick() {
-        moveTetromino(1, 0);
+        if(moveTetromino(1, 0)){
+
+        } else {
+            glueTetromino();
+            getNewFallingTetromino();
+        }
+        
 
     }
 
