@@ -83,6 +83,15 @@ public class Grid <E> implements IGrid <E>{
         return IsOnCol && IsOnRow;
     }
 
+
+    private List<E> removeRow(int row){
+        return this.grid.remove(row);
+    }
+
+    public void removeFullRow(int row){
+        List<E> removedRow = removeRow(row);
+        this.grid.add(0, removedRow);
+    }
 }
 
     

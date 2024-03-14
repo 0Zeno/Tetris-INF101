@@ -11,7 +11,6 @@ public interface IControllableTetrisModel {
      */
     boolean moveTetromino(int deltaRow, int deltaCol);
 
-
     /**
      * 
      * @return en boolsk verdi som sier om rotasjonen var vellykket
@@ -23,6 +22,9 @@ public interface IControllableTetrisModel {
     */
     void dropTetromino();
 
-
     GameState gameState();
+
+    int getTimerDelay();
+
+    void clockTick();
 }

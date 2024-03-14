@@ -74,10 +74,9 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         return false;
     }
 
-    
-    public void getNewFallingTetromino(){
+    public void getNewFallingTetromino() {
         Tetromino newFallingTetromino = factory.getNext().shiftedToTopCenterOf(board);
-        if (isLegalePlaceOnBoard(newFallingTetromino) && gameState() == GameState.ACTIVE_GAME){
+        if (isLegalePlaceOnBoard(newFallingTetromino) && gameState() == GameState.ACTIVE_GAME) {
             tetromino = newFallingTetromino;
         } else {
             currentGameState = GameState.GAME_OVER;
@@ -86,7 +85,7 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
     }
 
     public void glueTetromino() {
-        for (GridCell<Character> cell: tetromino){
+        for (GridCell<Character> cell : tetromino) {
             CellPosition pos = cell.pos();
             board.set(pos, cell.value());
         }
@@ -94,16 +93,28 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
     @Override
     public void dropTetromino() {
-        while (moveTetromino(1, 0));
+        while (moveTetromino(1, 0))
+            ;
         glueTetromino();
+        board.removeRow();
         getNewFallingTetromino();
 
-        
     }
 
     @Override
     public GameState gameState() {
         return currentGameState;
+    }
+
+    @Override
+    public int getTimerDelay() {
+        return 500;
+    }
+
+    @Override
+    public void clockTick() {
+        moveTetromino(1, 0);
+
     }
 
 }
