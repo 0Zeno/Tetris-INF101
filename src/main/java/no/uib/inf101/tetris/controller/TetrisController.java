@@ -23,7 +23,7 @@ public class TetrisController implements java.awt.event.KeyListener {
         this.timer = new Timer(controllableTetrisModel.getTimerDelay(), this::clockTick);
         timer.start();
         this.song = new TetrisSong();
-        //song.run();
+        song.run();
     }
 
     /**
