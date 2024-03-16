@@ -1,6 +1,5 @@
 package no.uib.inf101.tetris.model.Tetromino;
 
-
 public class PatternedTetrominoFactory implements ITetrominoFactory {
 
     String pattern;
@@ -10,10 +9,6 @@ public class PatternedTetrominoFactory implements ITetrominoFactory {
         this.pattern = pattern;
     }
 
-    
-    /** 
-     * @return Tetromino
-     */
     @Override
     public Tetromino getNext() {
         if (counter == pattern.length()) {

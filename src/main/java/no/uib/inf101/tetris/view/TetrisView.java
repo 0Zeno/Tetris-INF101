@@ -34,8 +34,10 @@ public class TetrisView extends JPanel {
     }
 
     /**
-     * @param g2
-     * @param r2
+     * Draws the game over screen on the graphics context.
+     * 
+     * @param g2 the graphics context to draw on
+     * @param r2 the rectangle defining the area to draw the game over screen on
      */
     public void drawGameOver(Graphics2D g2, Rectangle2D r2) {
         if (tetrisModel.gameState() == GameState.GAME_OVER) {
@@ -45,14 +47,14 @@ public class TetrisView extends JPanel {
 
             g2.setColor(Color.LIGHT_GRAY);
             g2.setFont(new Font("Arial", Font.BOLD, 40));
-            g2.drawString("Game Over", getWidth()/4, getHeight() / 2);
+            g2.drawString("Game Over", getWidth() / 4, getHeight() / 2);
 
         }
     }
 
     /**
      * 
-     * @param g2 grafics element
+     * @param g2 the graphics context to draw on
      */
     private void drawGame(Graphics2D g2) {
         double width = getHeight() / 2;
@@ -74,12 +76,11 @@ public class TetrisView extends JPanel {
 
     /**
      * 
-     * @param g2           2d graphics
-     * @param grid         ittereble grid
+     * @param g2 2d graphics
+     * @param grid ittereble grid
      * @param cPConcverter cell position to graphics converter
-     * @param colorTheme   color theme of tetris
+     * @param colorTheme color theme of tetris
      */
-
     private static void drawCells(Graphics2D g2, Iterable<GridCell<Character>> grid,
             CellPositionToPixelConverter cPConcverter, ColorTheme colorTheme) {
         for (GridCell<Character> gridCell : grid) {
@@ -89,7 +90,7 @@ public class TetrisView extends JPanel {
             g2.fill(box);
         }
     }
-    
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

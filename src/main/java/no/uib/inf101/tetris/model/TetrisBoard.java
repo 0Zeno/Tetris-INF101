@@ -5,6 +5,13 @@ import no.uib.inf101.grid.Grid;
 
 public class TetrisBoard extends Grid<Character> {
 
+    /**
+     * Represents a Tetris board.
+     * The board is a grid of cells where Tetris pieces can be placed or removed
+     * 
+     * @param row the width
+     * @param col the height
+     */
     public TetrisBoard(int row, int col) {
         super(row, col);
         for (int i = 0; i < row; i++) {
@@ -15,7 +22,7 @@ public class TetrisBoard extends Grid<Character> {
     }
 
     /**
-     * @return String
+     * @return String formatet as a grid
      */
     public String prettyString() {
         String prettyString = "";
@@ -31,6 +38,9 @@ public class TetrisBoard extends Grid<Character> {
         return prettyString;
     }
 
+    /**
+     * Clears the a row on the Tetris board by setting all cells in the row to '-'.
+     */
     private void clearRow() {
         TetrisBoard board = this;
         for (int col = 0; col < cols(); col++) {
@@ -38,9 +48,9 @@ public class TetrisBoard extends Grid<Character> {
         }
     }
 
-    
-    /** 
-     * @return int
+    /**
+     *
+     * @return The number of rows removed from the Tetris board.
      */
     public int removeRow() {
         TetrisBoard board = this;
@@ -58,6 +68,11 @@ public class TetrisBoard extends Grid<Character> {
         return removedRowsCount;
     }
 
+    /**
+     * 
+     * @param row the row to check
+     * @return boolean that detirmins if a row is full
+     */
     public boolean findFullRow(int row) {
         for (int col = 0; col < cols(); col++) {
             if (get(new CellPosition(row, col)) == '-') {

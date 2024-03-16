@@ -10,18 +10,19 @@ public class CellPositionToPixelConverter {
     private GridDimension gd;
     private double margin;
 
-    public CellPositionToPixelConverter(Rectangle2D box, GridDimension gd, double margin){
+    public CellPositionToPixelConverter(Rectangle2D box, GridDimension gd, double margin) {
         this.gd = gd;
         this.box = box;
         this.margin = margin;
     }
 
-    
-    /** 
-     * @param cp
-     * @return Rectangle2D
+    /**
+     * Returns the bounding rectangle for a given cell position.
+     * 
+     * @param cp The cell position.
+     * @return The bounding rectangle for the cell.
      */
-    public Rectangle2D getBoundsForCell(CellPosition cp){
+    public Rectangle2D getBoundsForCell(CellPosition cp) {
         double rows = gd.rows();
         double cols = gd.cols();
 

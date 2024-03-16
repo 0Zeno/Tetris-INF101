@@ -11,25 +11,21 @@ import no.uib.inf101.tetris.model.GameState;
 public interface IViewableTetrisModel {
 
     /**
-     *
      * @return the dimensions of the Tetris grid
      */
     GridDimension getDimensions();
 
     /**
-     *
      * @return an iterable of the tiles currently on the Tetris board
      */
     Iterable<GridCell<Character>> getTilesOnBoard();
 
     /**
-     *
      * @return an iterable of the tiles in the falling Tetromino
      */
     Iterable<GridCell<Character>> fallingTetromino();
 
     /**
-     *
      * @return the current game state of the Tetris game
      */
     GameState gameState();

@@ -21,17 +21,11 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         currentGameState = GameState.ACTIVE_GAME;
     }
 
-    /**
-     * @return Iterable<GridCell<Character>>
-     */
     @Override
     public Iterable<GridCell<Character>> getTilesOnBoard() {
         return board;
     }
 
-    /**
-     * @return Iterable<GridCell<Character>>
-     */
     @Override
     public Iterable<GridCell<Character>> fallingTetromino() {
         return tetromino;
@@ -47,6 +41,13 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         return false;
     }
 
+    /**
+     * Checks if a given tetromino can be placed legally on the board.
+     *
+     * @param tetromino the tetromino to be checked
+     * @return true if the tetromino can be placed legally on the board, false
+     *         otherwise
+     */
     private boolean isLegalePlaceOnBoard(Tetromino tetromino) {
         for (GridCell<Character> gridCellTetromino : tetromino) {
             if (!board.positionIsOnGrid(gridCellTetromino.pos())) {
@@ -69,6 +70,10 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         return false;
     }
 
+    /**
+     * Gets new falling tetromino and checks if the position is leagle
+     * Changes the gamestate if the new tetromino is placed ileagaly
+     */
     public void getNewFallingTetromino() {
         Tetromino newFallingTetromino = factory.getNext().shiftedToTopCenterOf(board);
         if (isLegalePlaceOnBoard(newFallingTetromino) && gameState() == GameState.ACTIVE_GAME) {
@@ -79,6 +84,9 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
     }
 
+    /**
+     * glues tetromino to the board
+     */
     public void glueTetromino() {
         for (GridCell<Character> cell : tetromino) {
             CellPosition pos = cell.pos();
@@ -88,11 +96,10 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
     @Override
     public void dropTetromino() {
-        while (moveTetromino(1, 0))
-            ;
-        glueTetromino();
-        board.removeRow();
-        getNewFallingTetromino();
+        while (moveTetromino(1, 0));
+            glueTetromino();
+            board.removeRow();
+            getNewFallingTetromino();
 
     }
 

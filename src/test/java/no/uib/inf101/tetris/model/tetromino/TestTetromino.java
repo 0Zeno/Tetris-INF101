@@ -79,6 +79,5 @@ public class TestTetromino {
         assertTrue(objs.contains(new GridCell<>(new CellPosition(10, 12), 'T')));
         assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 12), 'T')));
         assertTrue(objs.contains(new GridCell<>(new CellPosition(12, 12), 'T')));
-
     }
 }
