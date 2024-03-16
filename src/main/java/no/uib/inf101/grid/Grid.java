@@ -8,7 +8,7 @@ public class Grid<E> implements IGrid<E> {
 
     private int row;
     private int col;
-    List<List<E>> grid;
+    private List<List<E>> grid;
 
     public Grid(int row, int col, E defaultValue) {
         this.col = col;

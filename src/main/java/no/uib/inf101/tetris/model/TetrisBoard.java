@@ -38,10 +38,7 @@ public class TetrisBoard extends Grid<Character> {
         return prettyString;
     }
 
-    /**
-     * Clears the a row on the Tetris board by setting all cells in the row to '-'.
-     */
-    private void clearRow() {
+    private void setRowToDefaultChar() {
         TetrisBoard board = this;
         for (int col = 0; col < cols(); col++) {
             board.set(new CellPosition(0, col), '-');
@@ -60,7 +57,7 @@ public class TetrisBoard extends Grid<Character> {
             if (findFullRow(row)) {
                 removedRowsCount++;
                 board.removeFullRow(row);
-                clearRow();
+                setRowToDefaultChar();
                 row++;
             }
             row--;

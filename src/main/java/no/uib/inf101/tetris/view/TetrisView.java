@@ -14,12 +14,9 @@ import no.uib.inf101.tetris.model.GameState;
 
 public class TetrisView extends JPanel {
 
-    IViewableTetrisModel tetrisModel;
-
-    ColorTheme colorTheme;
-
+    private IViewableTetrisModel tetrisModel;
+    private ColorTheme colorTheme;
     private static final double OUTERMARGIN = 10;
-
     private static final double INNERMARGIN = 1;
 
     public TetrisView(IViewableTetrisModel vModel) {

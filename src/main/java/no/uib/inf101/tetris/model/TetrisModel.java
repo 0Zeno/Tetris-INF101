@@ -9,10 +9,10 @@ import no.uib.inf101.tetris.model.Tetromino.Tetromino;
 import no.uib.inf101.tetris.view.IViewableTetrisModel;
 
 public class TetrisModel implements IViewableTetrisModel, IControllableTetrisModel {
-    TetrisBoard board;
-    ITetrominoFactory factory;
-    Tetromino tetromino;
-    GameState currentGameState;
+    private TetrisBoard board;
+    private ITetrominoFactory factory;
+    private Tetromino tetromino;
+    private GameState currentGameState;
 
     public TetrisModel(TetrisBoard board, ITetrominoFactory factory) {
         this.board = board;
@@ -87,7 +87,7 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
     /**
      * glues tetromino to the board
      */
-    public void glueTetromino() {
+    private void glueTetromino() {
         for (GridCell<Character> cell : tetromino) {
             CellPosition pos = cell.pos();
             board.set(pos, cell.value());

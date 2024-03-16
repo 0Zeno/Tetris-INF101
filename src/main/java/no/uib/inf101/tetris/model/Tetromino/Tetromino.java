@@ -91,7 +91,6 @@ public class Tetromino implements Iterable<GridCell<Character>> {
     }
 
     /**
-     * 
      * @param deltaRow how many rows the tetromino is shifted by
      * @param deltaCol how many cols the tetromino is shifted by
      * @return Shifted tetromino position

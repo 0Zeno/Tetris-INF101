@@ -2,8 +2,8 @@ package no.uib.inf101.tetris.model.Tetromino;
 
 public class PatternedTetrominoFactory implements ITetrominoFactory {
 
-    String pattern;
-    int counter;
+    private String pattern;
+    private int counter;
 
     public PatternedTetrominoFactory(String pattern) {
         this.pattern = pattern;
