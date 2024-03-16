@@ -1,4 +1,4 @@
-package no.uib.inf101.grid;
+package no.uib.inf101.tetris.view;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -7,7 +7,6 @@ import java.awt.Color;
 
 import org.junit.jupiter.api.Test;
 
-import no.uib.inf101.tetris.view.ColorTheme;
 
 public class DefaultColorThemeTest {
     @Test

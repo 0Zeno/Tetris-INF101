@@ -33,8 +33,7 @@ public class TetrisView extends JPanel {
         this.setBackground(bg);
     }
 
-    
-    /** 
+    /**
      * @param g2
      * @param r2
      */
@@ -46,7 +45,7 @@ public class TetrisView extends JPanel {
 
             g2.setColor(Color.LIGHT_GRAY);
             g2.setFont(new Font("Arial", Font.BOLD, 40));
-            g2.drawString("Game Over", getWidth()/6 , getHeight() / 2);
+            g2.drawString("Game Over", getWidth()/4, getHeight() / 2);
 
         }
     }
@@ -56,12 +55,12 @@ public class TetrisView extends JPanel {
      * @param g2 grafics element
      */
     private void drawGame(Graphics2D g2) {
-        double width = getWidth();
-        double height = getWidth() * 2;
+        double width = getHeight() / 2;
+        double height = getHeight();
         Rectangle2D background = new Rectangle2D.Double(OUTERMARGIN, OUTERMARGIN, width - 2 * OUTERMARGIN,
                 height - 2 * OUTERMARGIN);
         CellPositionToPixelConverter cellInformation = new CellPositionToPixelConverter(background,
-                tetrisModel.getDimentions(), INNERMARGIN);
+                tetrisModel.getDimensions(), INNERMARGIN);
 
         g2.setColor(colorTheme.getBackgroundColor());
         g2.fill(background);
@@ -90,10 +89,7 @@ public class TetrisView extends JPanel {
             g2.fill(box);
         }
     }
-
-    /**
-     * @param g
-     */
+    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

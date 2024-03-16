@@ -2,30 +2,31 @@ package no.uib.inf101.tetris.view;
 
 import java.awt.Color;
 
+/**
+ * The IColorTheme interface represents a color theme for a Tetris game.
+ * It provides methods to retrieve different colors used in the game.
+ */
 public interface IColorTheme {
 
   /**
-   * 
-   * @param color 
-   * @return gets cell color
-   * @throws Error if return value is null
+   * @param color the character representing the color of the cell
+   * @return the color of the cell
+   * @throws Error if the return value is null
    */
-    Color getCellColor(Character color);
+  Color getCellColor(Character color);
 
-    /**
-     * 
-     * @return gets frame color
-     */
+  /**
+   * @return the color of the frame
+   */
+  Color getFrameColor();
 
-    Color getFrameColor();
+  /**
+   * @return the background color
+   */
+  Color getBackgroundColor();
 
-
-    /**
-     * 
-     * @return gets background color
-     * @throws Error color can not be transparent
-     */
-    Color getBackgroundColor();
-
-    Color getGameOverColor();
-} 
+  /**
+   * @return the color for the "Game Over" message
+   */
+  Color getGameOverColor();
+}

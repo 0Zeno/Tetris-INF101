@@ -1,15 +1,10 @@
-package no.uib.inf101.grid;
+package no.uib.inf101.tetris.model.Tetromino;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import no.uib.inf101.tetris.model.Tetromino.ITetrominoFactory;
-import no.uib.inf101.tetris.model.Tetromino.PatternedTetrominoFactory;
-import no.uib.inf101.tetris.model.Tetromino.Tetromino;
-
 public class TestPatternedTetrominoFactory {
-    
     @Test
     public void sanityTestPatternedTetrominoFactory() {
         ITetrominoFactory factory = new PatternedTetrominoFactory("TSZ");
@@ -20,5 +15,5 @@ public class TestPatternedTetrominoFactory {
         assertEquals(Tetromino.newTetromino('T'), factory.getNext());
         assertEquals(Tetromino.newTetromino('S'), factory.getNext());
     }
-
 }
+

@@ -1,4 +1,4 @@
-package no.uib.inf101.grid;
+package no.uib.inf101.tetris.view;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,8 +6,9 @@ import java.awt.geom.Rectangle2D;
 
 import org.junit.jupiter.api.Test;
 
+import no.uib.inf101.grid.CellPosition;
+import no.uib.inf101.grid.GridDimension;
 import no.uib.inf101.tetris.model.TetrisBoard;
-import no.uib.inf101.tetris.view.CellPositionToPixelConverter;
 
 public class CellPositionToPixelConverterTest {
     @Test

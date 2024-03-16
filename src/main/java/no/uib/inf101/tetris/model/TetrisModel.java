@@ -22,14 +22,6 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
     }
 
     /**
-     * @return GridDimension
-     */
-    @Override
-    public GridDimension getDimentions() {
-        return board;
-    }
-
-    /**
      * @return Iterable<GridCell<Character>>
      */
     @Override
@@ -37,8 +29,7 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         return board;
     }
 
-    
-    /** 
+    /**
      * @return Iterable<GridCell<Character>>
      */
     @Override
@@ -97,7 +88,8 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
     @Override
     public void dropTetromino() {
-        while (moveTetromino(1, 0));
+        while (moveTetromino(1, 0))
+            ;
         glueTetromino();
         board.removeRow();
         getNewFallingTetromino();
@@ -116,13 +108,17 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
 
     @Override
     public void clockTick() {
-        if(moveTetromino(1, 0)){
+        if (moveTetromino(1, 0)) {
         } else {
             glueTetromino();
             getNewFallingTetromino();
         }
-        
 
+    }
+
+    @Override
+    public GridDimension getDimensions() {
+        return board;
     }
 
 }

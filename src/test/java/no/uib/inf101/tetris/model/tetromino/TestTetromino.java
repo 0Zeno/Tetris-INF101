@@ -1,4 +1,4 @@
-package no.uib.inf101.tetris.model.tetromino;
+package no.uib.inf101.tetris.model.Tetromino;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -9,7 +9,6 @@ import java.util.List;
 
 import no.uib.inf101.grid.CellPosition;
 import no.uib.inf101.grid.GridCell;
-import no.uib.inf101.tetris.model.Tetromino.Tetromino;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package no.uib.inf101.grid;
+package no.uib.inf101.tetris.model.Tetromino;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -8,7 +8,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import no.uib.inf101.tetris.model.Tetromino.Tetromino;
+import no.uib.inf101.grid.CellPosition;
+import no.uib.inf101.grid.GridCell;
 
 public class TetrominoIterationOfSTest {
     @Test

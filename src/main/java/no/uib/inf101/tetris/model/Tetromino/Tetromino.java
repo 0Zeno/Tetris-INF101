@@ -1,79 +1,70 @@
 package no.uib.inf101.tetris.model.Tetromino;
-
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import no.uib.inf101.grid.CellPosition;
 import no.uib.inf101.grid.GridCell;
 import no.uib.inf101.grid.GridDimension;
-
 public class Tetromino implements Iterable<GridCell<Character>> {
     private char tetrominoType;
     private boolean[][] tetrominoShape;
     private CellPosition cellPos;
-
     /**
      * 
      * @param tetrominoType
      * @param tetrominoShape
      * @param cellPos
      */
-
     private Tetromino(char tetrominoType, boolean[][] tetrominoShape, CellPosition cellPos) {
         this.tetrominoType = tetrominoType;
         this.tetrominoShape = tetrominoShape;
         this.cellPos = cellPos;
     }
-
     /**
      * 
      * @param tetrominoType
      * @return Tetromino shape, type and pos in (0, 0)
      */
-
-    public static Tetromino newTetromino(char tetrominoType) {
+    protected static Tetromino newTetromino(char tetrominoType) {
         boolean[][] tetrominoShape;
         switch (tetrominoType) {
+            case 'U':
+            tetrominoShape = new boolean[][] {
+                { false, false, false },
+                { true, false, true },
+                { true, true, true } };
+                break;
             case 'L':
                 tetrominoShape = new boolean[][] {
                         { false, false, false },
                         { true, true, true },
                         { true, false, false } };
-
                 break;
-
             case 'J':
                 tetrominoShape = new boolean[][] {
                         { false, false, false },
                         { true, true, true },
                         { false, false, true } };
-
                 break;
-
             case 'S':
                 tetrominoShape = new boolean[][] {
                         { false, false, false },
                         { false, true, true },
                         { true, true, false } };
-
                 break;
-
             case 'Z':
                 tetrominoShape = new boolean[][] {
                         { false, false, false },
                         { true, true, false },
                         { false, true, true } };
                 break;
-
             case 'T':
                 tetrominoShape = new boolean[][] {
                         { false, false, false },
                         { true, true, true },
                         { false, true, false } };
                 break;
-
             case 'I':
                 tetrominoShape = new boolean[][] {
                         { false, false, false, false },
@@ -81,7 +72,6 @@ public class Tetromino implements Iterable<GridCell<Character>> {
                         { false, false, false, false },
                         { false, false, false, false } };
                 break;
-
             case 'O':
                 tetrominoShape = new boolean[][] {
                         { false, false, false, false },
@@ -89,14 +79,11 @@ public class Tetromino implements Iterable<GridCell<Character>> {
                         { false, true, true, false },
                         { false, false, false, false } };
                 break;
-
             default:
                 throw new IllegalArgumentException("No such tetromino type: " + tetrominoType);
-
         }
         return new Tetromino(tetrominoType, tetrominoShape, new CellPosition(0, 0));
     }
-
     /**
      * 
      * @param deltaRow
@@ -107,7 +94,6 @@ public class Tetromino implements Iterable<GridCell<Character>> {
         CellPosition pos = new CellPosition(cellPos.row() + deltaRow, cellPos.col() + deltaCol);
         return (new Tetromino(tetrominoType, tetrominoShape, pos));
     }
-
     /**
      * 
      * @param gridDimension
@@ -122,7 +108,6 @@ public class Tetromino implements Iterable<GridCell<Character>> {
         }
         return (new Tetromino(tetrominoType, tetrominoShape, new CellPosition(-1, col - 1)));
     }
-
     
     /** 
      * @return Iterator<GridCell<Character>>

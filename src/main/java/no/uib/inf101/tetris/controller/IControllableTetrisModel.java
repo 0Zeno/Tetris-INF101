@@ -5,26 +5,38 @@ import no.uib.inf101.tetris.model.GameState;
 public interface IControllableTetrisModel {
     /**
      * 
-     * @param deltaRow hvor mye den skal flyttes til siden
-     * @param deltaCol hvor mye den skal flyttes opp og ned
-     * @return en boolsk verdi som sier om flyttingen var vellykket
+     * @param deltaRow how many rows to move the tetromino
+     * @param deltaCol how many cols to move the tetromino
+     * @return true if the movement was leagle, false otherwise
      */
     boolean moveTetromino(int deltaRow, int deltaCol);
 
     /**
+     * Rotates the tetromino.
      * 
-     * @return en boolsk verdi som sier om rotasjonen var vellykket
+     * @return true if the rotation was leagle, false otherwise
      */
     boolean rotateTetromino();
 
-    /** 
-     * 
-    */
+    /**
+     * Drops the tetromino to the bottom of the grid.
+     */
     void dropTetromino();
 
+    /**
+     * 
+     * @return the current game state
+     */
     GameState gameState();
 
+    /**
+     * 
+     * @return the delay for the timer
+     */
     int getTimerDelay();
 
+    /**
+     * Advances the game by one clock tick.
+     */
     void clockTick();
 }

@@ -5,8 +5,8 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.Timer;
 
+import no.uib.inf101.tetris.midi.TetrisSong;
 import no.uib.inf101.tetris.model.GameState;
-import no.uib.inf101.tetris.model.TetrisSong;
 import no.uib.inf101.tetris.view.TetrisView;
 
 public class TetrisController implements java.awt.event.KeyListener {
@@ -26,21 +26,19 @@ public class TetrisController implements java.awt.event.KeyListener {
         song.run();
     }
 
-    /**
-     * @param e
-     */
     @Override
     public void keyTyped(KeyEvent e) {
     }
 
-    /**
-     * @param e the pressed key
-     */
     @Override
     public void keyPressed(KeyEvent e) {
 
+        if (controllableTetrisModel.gameState() == GameState.GAME_OVER && e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+        }
+
         if (controllableTetrisModel.gameState() == GameState.ACTIVE_GAME) {
-            
+
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                 controllableTetrisModel.moveTetromino(0, -1);
                 System.out.println("move to the left");
@@ -60,14 +58,18 @@ public class TetrisController implements java.awt.event.KeyListener {
         }
     }
 
-    
-    /** 
-     * @param e
-     */
     @Override
     public void keyReleased(KeyEvent e) {
     }
 
+    /**
+     * Handles the clock tick event.
+     * If the game state is active, it calls the clockTick method of the
+     * controllableTetrisModel,
+     * delays for a certain period of time, and then repaints the tetrisView.
+     *
+     * @param actionEvent the action event triggering the clock tick
+     */
     private void clockTick(ActionEvent actionEvent) {
         if (controllableTetrisModel.gameState() == GameState.ACTIVE_GAME) {
             controllableTetrisModel.clockTick();

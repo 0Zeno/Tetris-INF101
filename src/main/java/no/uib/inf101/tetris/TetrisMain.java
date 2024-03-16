@@ -13,11 +13,6 @@ import no.uib.inf101.tetris.view.TetrisView;
 public class TetrisMain {
 
   public static final String WINDOW_TITLE = "INF101 Tetris";
-  
-  
-  /** 
-   * @param args
-   */
   public static void main(String[] args) {
     TetrisBoard tb = new TetrisBoard(20, 10);
     ITetrominoFactory factory = new RandomTetrominoFactory();
@@ -42,8 +37,6 @@ public class TetrisMain {
     //setter rammen i midten
     frame.setLocationRelativeTo(null);
     frame.setVisible(true);
-    
-
   }
   
 }
