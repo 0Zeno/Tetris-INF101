@@ -1,4 +1,4 @@
-package no.uib.inf101.tetris.model.Tetromino;
+package no.uib.inf101.tetris.model.tetromino;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

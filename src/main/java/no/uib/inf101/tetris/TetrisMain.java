@@ -5,8 +5,8 @@ import javax.swing.JFrame;
 import no.uib.inf101.tetris.controller.TetrisController;
 import no.uib.inf101.tetris.model.TetrisBoard;
 import no.uib.inf101.tetris.model.TetrisModel;
-import no.uib.inf101.tetris.model.Tetromino.ITetrominoFactory;
-import no.uib.inf101.tetris.model.Tetromino.RandomTetrominoFactory;
+import no.uib.inf101.tetris.model.tetromino.ITetrominoFactory;
+import no.uib.inf101.tetris.model.tetromino.RandomTetrominoFactory;
 import no.uib.inf101.tetris.view.TetrisView;
 
 
@@ -20,6 +20,7 @@ public class TetrisMain {
     TetrisModel model = new TetrisModel(tb, factory);
     
     TetrisView view = new TetrisView(model);
+    
     @SuppressWarnings("unused")
     TetrisController controller = new TetrisController(model, view);
     // The JFrame is the "root" application window.

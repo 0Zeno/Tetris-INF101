@@ -41,11 +41,9 @@ public class TetrisView extends JPanel {
             Rectangle2D gameOverScreen = r2;
             g2.setColor(colorTheme.getGameOverColor());
             g2.fill(gameOverScreen);
-
             g2.setColor(Color.LIGHT_GRAY);
             g2.setFont(new Font("Arial", Font.BOLD, 40));
-            g2.drawString("Game Over", getWidth() / 4, getHeight() / 2);
-
+            g2.drawString("Game Over", getHeight() / 12, getHeight() / 2);
         }
     }
 

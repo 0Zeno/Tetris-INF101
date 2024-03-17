@@ -1,4 +1,4 @@
-package no.uib.inf101.tetris.model.Tetromino;
+package no.uib.inf101.tetris.model.tetromino;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -75,9 +75,9 @@ public class TestTetromino {
         for (GridCell<Character> gc : tetro) {
             objs.add(gc);
         }
-        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 13), 'T')));
-        assertTrue(objs.contains(new GridCell<>(new CellPosition(10, 12), 'T')));
-        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 12), 'T')));
-        assertTrue(objs.contains(new GridCell<>(new CellPosition(12, 12), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(10, 11), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 11), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(12, 11), 'T')));
+        assertTrue(objs.contains(new GridCell<>(new CellPosition(11, 10), 'T')));
     }
 }

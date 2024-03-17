@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import no.uib.inf101.grid.CellPosition;
 import no.uib.inf101.grid.GridCell;
-import no.uib.inf101.tetris.model.Tetromino.ITetrominoFactory;
-import no.uib.inf101.tetris.model.Tetromino.PatternedTetrominoFactory;
+import no.uib.inf101.tetris.model.tetromino.ITetrominoFactory;
+import no.uib.inf101.tetris.model.tetromino.PatternedTetrominoFactory;
 import no.uib.inf101.tetris.view.IViewableTetrisModel;
 
 
