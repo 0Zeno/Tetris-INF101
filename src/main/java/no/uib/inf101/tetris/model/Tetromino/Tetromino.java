@@ -110,7 +110,7 @@ public class Tetromino implements Iterable<GridCell<Character>> {
         if (gridDimension.cols() % 2 == 0) {
             col = gridDimension.cols() / 2 - 1;
         } else {
-            col = gridDimension.cols() / 2 - 2;
+            col = gridDimension.cols() / 2;
         }
         return (new Tetromino(tetrominoType, tetrominoShape, new CellPosition(-1, col - 1)));
     }

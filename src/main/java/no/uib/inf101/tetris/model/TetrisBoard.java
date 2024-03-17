@@ -38,6 +38,15 @@ public class TetrisBoard extends Grid<Character> {
         return prettyString;
     }
 
+    public void clearBoard() {
+        TetrisBoard board = this;
+        for (int row = 0; row < rows(); row++) {
+            for (int col = 0; col < cols(); col++){
+                board.set(new CellPosition(row, col), '-');
+            }
+        }
+    }
+
     private void setRowToDefaultChar() {
         TetrisBoard board = this;
         for (int col = 0; col < cols(); col++) {

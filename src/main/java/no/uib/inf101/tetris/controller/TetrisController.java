@@ -34,7 +34,8 @@ public class TetrisController implements java.awt.event.KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if (controllableTetrisModel.gameState() == GameState.GAME_OVER && e.getKeyCode() == KeyEvent.VK_ENTER) {
-            // TODO
+            controllableTetrisModel.resetGame();
+            
         }
 
         if (controllableTetrisModel.gameState() == GameState.ACTIVE_GAME) {

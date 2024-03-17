@@ -44,6 +44,9 @@ public class TetrisView extends JPanel {
             g2.setColor(Color.LIGHT_GRAY);
             g2.setFont(new Font("Arial", Font.BOLD, 40));
             g2.drawString("Game Over", getHeight() / 12, getHeight() / 2);
+            g2.setFont(new Font("Arial", Font.BOLD, 20));
+            g2.drawString("Press enter to restart", getHeight() / 12 + 5, getHeight() / 2 + 20);
+
         }
     }
 

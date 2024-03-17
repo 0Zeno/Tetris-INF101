@@ -128,4 +128,8 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         return board;
     }
 
+    public void resetGame() {
+        board.clearBoard();
+        currentGameState = GameState.ACTIVE_GAME;
+    }
 }

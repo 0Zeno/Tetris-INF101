@@ -39,4 +39,9 @@ public interface IControllableTetrisModel {
      * Advances the game by one clock tick.
      */
     void clockTick();
+
+    /**
+     * Resets the game
+     */
+    void resetGame();
 }
