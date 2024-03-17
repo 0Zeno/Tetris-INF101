@@ -22,7 +22,7 @@ public class TetrisView extends JPanel {
     public TetrisView(IViewableTetrisModel vModel) {
         this.tetrisModel = vModel;
         this.setFocusable(true);
-        this.setPreferredSize(new Dimension(300, 600));
+        this.setPreferredSize(new Dimension(600, 700));
         this.colorTheme = new ColorTheme();
 
         Color bg = colorTheme.getBackgroundColor();
@@ -46,7 +46,6 @@ public class TetrisView extends JPanel {
             g2.drawString("Game Over", getHeight() / 12, getHeight() / 2);
             g2.setFont(new Font("Arial", Font.BOLD, 20));
             g2.drawString("Press enter to restart", getHeight() / 12 + 5, getHeight() / 2 + 20);
-
         }
     }
 

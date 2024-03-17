@@ -102,4 +102,29 @@ public class TestTetrisModel {
     assertFalse(model.moveTetromino(100, 100));
   }
 
+  @Test
+  public void testDropTetromino() {
+    //TODO:
+  }
+
+  @Test
+  public void testClockTick(){
+    TetrisBoard board = new TetrisBoard(20, 10);
+    ITetrominoFactory factory = new PatternedTetrominoFactory("O");
+    TetrisModel model = new TetrisModel(board, factory);
+
+    model.clockTick();
+    model.clockTick();
+
+    List<GridCell<Character>> tetroCells = new ArrayList<>();
+    for (GridCell<Character> gc : model.fallingTetromino()) {
+      tetroCells.add(gc);
+    }
+
+    assertEquals(4, tetroCells.size());
+    assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(3, 4), 'O')));
+    assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(3, 5), 'O')));
+    assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(2, 4), 'O')));
+    assertTrue(tetroCells.contains(new GridCell<>(new CellPosition(2, 5), 'O')));
+  }
 }

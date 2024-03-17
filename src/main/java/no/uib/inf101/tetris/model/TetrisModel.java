@@ -127,7 +127,9 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
     public GridDimension getDimensions() {
         return board;
     }
-
+    /**
+     * restets the board and sets the gamestate to active
+     */
     public void resetGame() {
         board.clearBoard();
         currentGameState = GameState.ACTIVE_GAME;

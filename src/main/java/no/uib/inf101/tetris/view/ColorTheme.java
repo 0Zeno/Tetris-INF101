@@ -15,7 +15,7 @@ public class ColorTheme implements IColorTheme {
             case 'O' -> Color.PINK;
             case 'T' -> Color.MAGENTA;
             case 'U' -> Color.LIGHT_GRAY;
-            case '-' -> Color.BLACK;
+            case '-' -> new Color(0, 0, 0, 50);
             default -> throw new IllegalArgumentException("No avalible color for '" + c + "'");
         };
         return color;

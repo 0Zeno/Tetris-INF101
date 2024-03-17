@@ -34,8 +34,7 @@ public class TetrisController implements java.awt.event.KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if (controllableTetrisModel.gameState() == GameState.GAME_OVER && e.getKeyCode() == KeyEvent.VK_ENTER) {
-            controllableTetrisModel.resetGame();
-            
+            controllableTetrisModel.resetGame();  
         }
 
         if (controllableTetrisModel.gameState() == GameState.ACTIVE_GAME) {
@@ -68,6 +67,7 @@ public class TetrisController implements java.awt.event.KeyListener {
      * If the game state is active, it calls the clockTick method of the
      * controllableTetrisModel,
      * delays for a certain period of time, and then repaints the tetrisView.
+     * Starts and stops the music
      *
      * @param actionEvent the action event triggering the clock tick
      */
