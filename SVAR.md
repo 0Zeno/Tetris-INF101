@@ -16,4 +16,4 @@ Jeg vil gjerne lære hvordan man starter et prosjekt helt fra bunnen av. Altså 
 
 <!-- ditt svar her  -->
 
-Jeg la til mange hjelpemetoder med beskrivende navn og hadde godde variabel navn. Dette gjør at man senere kan gå inn i koden min og bruke metodene jeg lagde i tetris prosjektet. I tillegg skrev jeg gode javadoc kommentarer som beskriver godt hva metoden gjør, hva som returnes og hvilke parametere metoden tar inn.
+Jeg la til mange hjelpemetoder med beskrivende navn og hadde godde variabel navn. Dette gjør at man senere kan gå inn i koden min og bruke metodene jeg lagde i tetris prosjektet. I tillegg skrev jeg gode javadoc kommentarer som beskriver godt hva metoden gjør, hva som returnes og hvilke parametere metoden tar inn. Pakkenavnen gjør det lett å tenke seg hvor ulike deler av koden kan være.
