@@ -15,7 +15,7 @@ public class ColorTheme implements IColorTheme {
             case 'O' -> Color.PINK;
             case 'T' -> Color.MAGENTA;
             case 'U' -> Color.LIGHT_GRAY;
-            case '-' -> new Color(0, 0, 0, 50);
+            case '-' -> new Color(255, 255, 255, 90);
             default -> throw new IllegalArgumentException("No avalible color for '" + c + "'");
         };
         return color;
@@ -23,17 +23,17 @@ public class ColorTheme implements IColorTheme {
 
     @Override
     public Color getFrameColor() {
-        return Color.LIGHT_GRAY;
+        return new Color(0, 0, 0, 20);
     }
 
     @Override
     public Color getBackgroundColor() {
-        return Color.WHITE;
+        return new Color(0, 0, 0, 20);
     }
 
     @Override
     public Color getGameOverColor() {
-        return (new Color(20, 20, 20, 200));
+        return (new Color(0, 0, 0, 90));
     }
 
 }

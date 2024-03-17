@@ -12,7 +12,7 @@ import no.uib.inf101.tetris.view.TetrisView;
 
 public class TetrisMain {
 
-  public static final String WINDOW_TITLE = "INF101 Tetris";
+  public static final String WINDOW_TITLE = "Tetris";
   public static void main(String[] args) {
     TetrisBoard tb = new TetrisBoard(20, 10);
     ITetrominoFactory factory = new RandomTetrominoFactory();
@@ -28,6 +28,7 @@ public class TetrisMain {
     // and tell it to display our tetrisView
     JFrame frame = new JFrame(WINDOW_TITLE);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setResizable(false);
     
     // Here we set which component to view in our window
     frame.setContentPane(view);

@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
@@ -22,7 +23,7 @@ public class TetrisView extends JPanel {
     public TetrisView(IViewableTetrisModel vModel) {
         this.tetrisModel = vModel;
         this.setFocusable(true);
-        this.setPreferredSize(new Dimension(600, 700));
+        this.setPreferredSize(new Dimension(600, 600));
         this.colorTheme = new ColorTheme();
 
         Color bg = colorTheme.getBackgroundColor();
@@ -41,7 +42,7 @@ public class TetrisView extends JPanel {
             Rectangle2D gameOverScreen = r2;
             g2.setColor(colorTheme.getGameOverColor());
             g2.fill(gameOverScreen);
-            g2.setColor(Color.LIGHT_GRAY);
+            g2.setColor(Color.BLACK);
             g2.setFont(new Font("Arial", Font.BOLD, 40));
             g2.drawString("Game Over", getHeight() / 12, getHeight() / 2);
             g2.setFont(new Font("Arial", Font.BOLD, 20));
@@ -56,11 +57,12 @@ public class TetrisView extends JPanel {
     private void drawGame(Graphics2D g2) {
         double width = getHeight() / 2;
         double height = getHeight();
+        BufferedImage image = Inf101Graphics.loadImageFromResources("/Guido.jpeg");
+        Inf101Graphics.drawImage(g2, image, 0, 0, 0.70);
         Rectangle2D background = new Rectangle2D.Double(OUTERMARGIN, OUTERMARGIN, width - 2 * OUTERMARGIN,
                 height - 2 * OUTERMARGIN);
         CellPositionToPixelConverter cellInformation = new CellPositionToPixelConverter(background,
                 tetrisModel.getDimensions(), INNERMARGIN);
-
         g2.setColor(colorTheme.getBackgroundColor());
         g2.fill(background);
         drawCells(g2, tetrisModel.getTilesOnBoard(), cellInformation, colorTheme);
@@ -73,10 +75,10 @@ public class TetrisView extends JPanel {
 
     /**
      * 
-     * @param g2 2d graphics
-     * @param grid ittereble grid
+     * @param g2           2d graphics
+     * @param grid         ittereble grid
      * @param cPConcverter cell position to graphics converter
-     * @param colorTheme color theme of tetris
+     * @param colorTheme   color theme of tetris
      */
     private static void drawCells(Graphics2D g2, Iterable<GridCell<Character>> grid,
             CellPositionToPixelConverter cPConcverter, ColorTheme colorTheme) {
@@ -93,6 +95,11 @@ public class TetrisView extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         drawGame(g2);
+    }
+
+    public void drawScore(Graphics2D g2, int score) {
+        g2.setFont(new Font("Arial", Font.BOLD, 20));
+        g2.drawString("", getHeight() / 12 + 5, getHeight() / 2 + 20);
     }
 
 }
