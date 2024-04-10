@@ -10,9 +10,9 @@ import no.uib.inf101.tetris.model.tetromino.RandomTetrominoFactory;
 import no.uib.inf101.tetris.view.TetrisView;
 
 
-public class TetrisMain {
+public class   TetrisMain {
 
-  public static final String WINDOW_TITLE = "Tetris";
+  public static final String WINDOW_TITLE = "Zeno";
   public static void main(String[] args) {
     TetrisBoard tb = new TetrisBoard(20, 10);
     ITetrominoFactory factory = new RandomTetrominoFactory();

@@ -91,6 +91,7 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
         for (GridCell<Character> cell : tetromino) {
             CellPosition pos = cell.pos();
             board.set(pos, cell.value());
+            board.removeRow();
         }
     }
 
@@ -98,7 +99,6 @@ public class TetrisModel implements IViewableTetrisModel, IControllableTetrisMod
     public void dropTetromino() {
         while (moveTetromino(1, 0));
             glueTetromino();
-            board.removeRow();
             getNewFallingTetromino();
 
     }
